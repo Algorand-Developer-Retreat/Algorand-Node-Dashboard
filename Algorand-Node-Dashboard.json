@@ -22,30 +22,126 @@
   "links": [],
   "panels": [
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fehd4wainhnggb"
+      },
       "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Ledger Round"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#01dc94",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Database Round"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#01dc94",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
-        "h": 2,
+        "h": 6,
         "w": 4,
         "x": 0,
         "y": 0
       },
-      "id": 13,
+      "id": 2,
       "options": {
-        "code": {
-          "language": "plaintext",
-          "showLineNumbers": false,
-          "showMiniMap": false
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
         },
-        "content": "<span style=\"color:#FFFFFF\">\n<h1>Ledger Metrics</h1>\n</span>",
-        "mode": "markdown"
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": false
       },
       "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "algod_ledger_round",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "editorMode": "code",
+          "expr": "algod_ledger_dbround",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
       "title": "",
       "transparent": true,
-      "type": "text"
+      "type": "stat"
     },
     {
       "datasource": {
@@ -188,32 +284,6 @@
       "type": "stat"
     },
     {
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 6,
-        "x": 10,
-        "y": 0
-      },
-      "id": 11,
-      "options": {
-        "code": {
-          "language": "plaintext",
-          "showLineNumbers": false,
-          "showMiniMap": false
-        },
-        "content": "<span style=\"color:#FFFFFF\">\n<h1>Node Metrics</h1>\n</span>",
-        "mode": "markdown"
-      },
-      "pluginVersion": "11.3.0",
-      "title": "",
-      "transparent": true,
-      "type": "text"
-    },
-    {
       "datasource": {
         "type": "prometheus",
         "uid": "fehd4wainhnggb"
@@ -307,7 +377,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "CPU per Core"
+                "value": "CPU Core"
               },
               {
                 "id": "color",
@@ -322,7 +392,7 @@
       "gridPos": {
         "h": 7,
         "w": 4,
-        "x": 16,
+        "x": 10,
         "y": 0
       },
       "id": 41,
@@ -334,7 +404,7 @@
           "showLegend": false
         },
         "tooltip": {
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         }
       },
@@ -498,7 +568,7 @@
       "gridPos": {
         "h": 7,
         "w": 4,
-        "x": 20,
+        "x": 14,
         "y": 0
       },
       "id": 40,
@@ -510,7 +580,7 @@
           "showLegend": false
         },
         "tooltip": {
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         }
       },
@@ -565,8 +635,16 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#01dc94",
+                "color": "#ff7f48",
                 "value": null
+              },
+              {
+                "color": "#ffe248",
+                "value": 1
+              },
+              {
+                "color": "#01dc94",
+                "value": 4
               }
             ]
           }
@@ -580,14 +658,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Ledger Round"
-              },
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#9595f5",
-                  "mode": "fixed"
-                }
+                "value": "Total Peers"
               }
             ]
           },
@@ -599,14 +670,43 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Database Round"
-              },
+                "value": "Outgoing Peers"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
               {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#5858f0",
-                  "mode": "fixed"
-                }
+                "id": "displayName",
+                "value": "Outgoing Connections"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "D"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Incoming Peers"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "E"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Incoming Connections"
               }
             ]
           }
@@ -614,17 +714,24 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 4,
-        "x": 0,
-        "y": 2
+        "w": 6,
+        "x": 18,
+        "y": 0
       },
-      "id": 2,
+      "id": 12,
       "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "center",
+        "displayMode": "basic",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
         "orientation": "horizontal",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -632,9 +739,9 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
-        "textMode": "value_and_name",
-        "wideLayout": false
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
       },
       "pluginVersion": "11.3.0",
       "targets": [
@@ -645,7 +752,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "algod_ledger_round",
+          "expr": "algod_network_peers",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -660,105 +767,56 @@
             "uid": "fehd4wainhnggb"
           },
           "editorMode": "code",
-          "expr": "algod_ledger_dbround",
+          "expr": "algod_network_outgoing_peers",
           "hide": false,
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
           "refId": "B"
-        }
-      ],
-      "title": "",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "fehd4wainhnggb"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "center",
-            "cellOptions": {
-              "type": "color-text"
-            },
-            "filterable": false,
-            "inspect": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
         },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 10,
-        "y": 2
-      },
-      "id": 1,
-      "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "enablePagination": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
-        "showHeader": false
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "fehd4wainhnggb"
           },
-          "disableTextWrap": false,
           "editorMode": "code",
-          "exemplar": false,
-          "expr": "algod_build_info",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": true,
+          "expr": "algod_network_outgoing_connections",
+          "hide": false,
+          "instant": false,
           "legendFormat": "__auto",
-          "range": false,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "",
-      "transformations": [
+          "range": true,
+          "refId": "C"
+        },
         {
-          "id": "labelsToFields",
-          "options": {
-            "keepLabels": [
-              "version",
-              "channel",
-              "commit"
-            ],
-            "mode": "rows"
-          }
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "editorMode": "code",
+          "expr": "algod_network_incoming_peers",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "editorMode": "code",
+          "expr": "algod_network_incoming_connections",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "E"
         }
       ],
+      "title": "Peering",
       "transparent": true,
-      "type": "table"
+      "type": "bargauge"
     },
     {
       "datasource": {
@@ -897,6 +955,77 @@
         }
       ],
       "title": "P2P Messages Sent",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fehd4wainhnggb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#bfbff9",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 6
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(algod_ledger_transactions_total[5m])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Ledger TPS",
       "transparent": true,
       "type": "stat"
     },
@@ -1087,7 +1216,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 10,
+        "x": 18,
         "y": 6
       },
       "id": 10,
@@ -1186,7 +1315,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 13,
+        "x": 21,
         "y": 6
       },
       "id": 32,
@@ -1254,7 +1383,7 @@
           },
           "custom": {
             "axisBorderShow": true,
-            "axisCenteredZero": true,
+            "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisGridShow": false,
             "axisLabel": "",
@@ -1344,25 +1473,25 @@
                 }
               },
               {
-                "id": "custom.transform",
-                "value": "negative-Y"
-              },
-              {
                 "id": "custom.fillOpacity",
                 "value": 40
               },
               {
                 "id": "custom.gradientMode",
                 "value": "opacity"
+              },
+              {
+                "id": "custom.transform",
+                "value": "negative-Y"
               }
             ]
           }
         ]
       },
       "gridPos": {
-        "h": 9,
+        "h": 7,
         "w": 8,
-        "x": 16,
+        "x": 10,
         "y": 7
       },
       "id": 23,
@@ -1370,8 +1499,8 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+          "placement": "right",
+          "showLegend": false
         },
         "tooltip": {
           "mode": "multi",
@@ -1443,9 +1572,9 @@
         "h": 3,
         "w": 4,
         "x": 0,
-        "y": 8
+        "y": 9
       },
-      "id": 8,
+      "id": 6,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1472,7 +1601,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_ledger_transactions_total[5m])",
+          "expr": "algod_tx_pool_count",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -1482,7 +1611,7 @@
           "useBackend": false
         }
       ],
-      "title": "Ledger TPS",
+      "title": "TX Pool Count",
       "transparent": true,
       "type": "stat"
     },
@@ -1636,118 +1765,46 @@
           "color": {
             "mode": "thresholds"
           },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "color-text"
+            },
+            "filterable": false,
+            "inspect": false
+          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "#ff7f48",
-                "value": null
-              },
-              {
-                "color": "#ffe248",
-                "value": 1
-              },
-              {
                 "color": "#01dc94",
-                "value": 4
+                "value": null
               }
             ]
           }
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byFrameRefID",
-              "options": "A"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Total Peers"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byFrameRefID",
-              "options": "B"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Outgoing Peers"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byFrameRefID",
-              "options": "C"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Outgoing Connections"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byFrameRefID",
-              "options": "D"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Incoming Peers"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byFrameRefID",
-              "options": "E"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Incoming Connections"
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 6,
-        "x": 10,
+        "x": 18,
         "y": 9
       },
-      "id": 12,
+      "id": 1,
       "options": {
-        "displayMode": "basic",
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "maxVizHeight": 300,
-        "minVizHeight": 16,
-        "minVizWidth": 8,
-        "namePlacement": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
           "fields": "",
-          "values": false
+          "reducer": [
+            "sum"
+          ],
+          "show": false
         },
-        "showUnfilled": true,
-        "sizing": "auto",
-        "valueMode": "color"
+        "showHeader": false
       },
       "pluginVersion": "11.3.0",
       "targets": [
@@ -1758,71 +1815,33 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "algod_network_peers",
+          "exemplar": false,
+          "expr": "algod_build_info",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "instant": false,
+          "instant": true,
           "legendFormat": "__auto",
-          "range": true,
+          "range": false,
           "refId": "A",
           "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fehd4wainhnggb"
-          },
-          "editorMode": "code",
-          "expr": "algod_network_outgoing_peers",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fehd4wainhnggb"
-          },
-          "editorMode": "code",
-          "expr": "algod_network_outgoing_connections",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fehd4wainhnggb"
-          },
-          "editorMode": "code",
-          "expr": "algod_network_incoming_peers",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fehd4wainhnggb"
-          },
-          "editorMode": "code",
-          "expr": "algod_network_incoming_connections",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "E"
         }
       ],
-      "title": "Peering",
+      "title": "Algod Build Information",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "keepLabels": [
+              "version",
+              "channel",
+              "commit"
+            ],
+            "mode": "rows"
+          }
+        }
+      ],
       "transparent": true,
-      "type": "bargauge"
+      "type": "table"
     },
     {
       "datasource": {
@@ -1832,7 +1851,6 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "#bfbff9",
             "mode": "thresholds"
           },
           "mappings": [],
@@ -1852,9 +1870,9 @@
         "h": 3,
         "w": 4,
         "x": 0,
-        "y": 11
+        "y": 12
       },
-      "id": 6,
+      "id": 33,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1881,7 +1899,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "algod_tx_pool_count",
+          "expr": "node_load1",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -1891,7 +1909,7 @@
           "useBackend": false
         }
       ],
-      "title": "TX Pool Count",
+      "title": "Node Load (1m avg)",
       "transparent": true,
       "type": "stat"
     },
@@ -2040,14 +2058,214 @@
         "type": "prometheus",
         "uid": "fehd4wainhnggb"
       },
-      "description": "Difference between Ledger and Database Round",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Bytes Written"
+              },
+              {
+                "id": "unit",
+                "value": "decbytes"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#01dc94",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 40
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Bytes Read"
+              },
+              {
+                "id": "unit",
+                "value": "decbytes"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#4444ed",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 40
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "displayName",
+                "value": "Disk IO Time Seconds Total"
+              },
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "text",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 10,
+        "y": 14
+      },
+      "id": 45,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "editorMode": "code",
+          "expr": "rate(node_disk_written_bytes_total[5m])",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "editorMode": "code",
+          "expr": "rate(node_disk_read_bytes_total[5m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "editorMode": "code",
+          "expr": "rate(node_disk_io_time_seconds_total[5m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Disk Utilisation",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fehd4wainhnggb"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
-          "displayName": "Rounds",
-          "fieldMinMax": false,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2062,15 +2280,15 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 4,
         "x": 0,
-        "y": 14
+        "y": 15
       },
-      "id": 15,
+      "id": 42,
       "options": {
         "colorMode": "value",
-        "graphMode": "none",
+        "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
         "percentChangeColorMode": "standard",
@@ -2082,7 +2300,7 @@
           "values": false
         },
         "showPercentChange": false,
-        "textMode": "auto",
+        "textMode": "value",
         "wideLayout": true
       },
       "pluginVersion": "11.3.0",
@@ -2094,7 +2312,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "algod_ledger_round - algod_ledger_dbround",
+          "expr": "rate(node_network_transmit_errs_total[5m]) / rate(node_network_transmit_packets_total[5m]) * 100",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -2104,7 +2322,19 @@
           "useBackend": false
         }
       ],
-      "title": "Database Lag",
+      "title": "Network Errors",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "keepLabels": [
+              "commit",
+              "version",
+              "channel"
+            ]
+          }
+        }
+      ],
       "transparent": true,
       "type": "stat"
     },
@@ -2247,245 +2477,23 @@
       "title": "Bundles dropped",
       "transparent": true,
       "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "fehd4wainhnggb"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 18,
-        "y": 16
-      },
-      "id": 33,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fehd4wainhnggb"
-          },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "node_load1",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "Node Load (1m avg)",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "fehd4wainhnggb"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 21,
-        "y": 16
-      },
-      "id": 42,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fehd4wainhnggb"
-          },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "rate(node_network_transmit_errs_total[5m]) / rate(node_network_transmit_packets_total[5m]) * 100",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "Network Errors",
-      "transformations": [
-        {
-          "id": "labelsToFields",
-          "options": {
-            "keepLabels": [
-              "commit",
-              "version",
-              "channel"
-            ]
-          }
-        }
-      ],
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "fehd4wainhnggb"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 0,
-        "y": 18
-      },
-      "id": 22,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fehd4wainhnggb"
-          },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "go_goroutines",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "Goroutines",
-      "transparent": true,
-      "type": "stat"
     }
   ],
   "preload": false,
-  "refresh": "auto",
+  "refresh": "5s",
   "schemaVersion": 40,
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Derova - Community Dashboard v2",
   "uid": "aehd7rt8hw1dse",
-  "version": 263,
+  "version": 286,
   "weekStart": ""
 }
