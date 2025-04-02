@@ -1,4 +1,4 @@
-# Algorand Community Grafana Dashboard
+# Algorand - Grafana Community Dashboard
 
 ## Overview
 This repository contains a Grafana dashboard template (JSON format) designed for monitoring Algorand nodes.
