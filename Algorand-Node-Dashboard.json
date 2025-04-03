@@ -202,6 +202,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "Total and per core CPU utilisation",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -365,6 +366,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "Memory usage with 80% (Yellow), 90% (Orange) and 100% (Red) indicators",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -540,6 +542,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "Peers are the other nodes your node is directly connected to",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -738,6 +741,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "Algod ledger transactions (Total)",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -949,6 +953,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "Total bytes being read from and written to the disk",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1116,6 +1121,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "Disk Size, Disk Consumed, and Disk IO ",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1310,7 +1316,7 @@
           "refId": "C"
         }
       ],
-      "title": "Filesystem Space",
+      "title": "Filesystem and IO",
       "transparent": true,
       "type": "timeseries"
     },
@@ -1319,6 +1325,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "Algod process (not system) uptime",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1410,7 +1417,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
-      "description": "Is clock synchronized to a reliable server",
+      "description": "Reporting if clock is synchronized to a reliable server",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1509,6 +1516,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "Number of messages in the pool",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1720,6 +1728,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "Build information of the Algod service",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1808,6 +1817,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "1 minute average of the node load",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2030,6 +2040,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "Number of network transmit errors as a ratio based on the number of total transmit packets",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2252,6 +2263,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
+      "description": "Network traffic coming into (Ingress) and leaving (egress) the node",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2736,6 +2748,6 @@
   "timezone": "browser",
   "title": "Derova - Community Dashboard v2",
   "uid": "aehd7rt8hw1dse",
-  "version": 314,
+  "version": 330,
   "weekStart": ""
 }
