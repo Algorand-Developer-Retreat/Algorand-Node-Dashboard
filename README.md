@@ -1,9 +1,10 @@
 # Algorand - Grafana Community Dashboard
 
 ## Overview
-This repository contains a Grafana dashboard template (JSON format) designed for monitoring Algorand nodes.
+This repository contains a Grafana dashboard template designed for graphing Algorand node metrics.
 The dashboard provides real-time metrics and performance data visualisations for node operators.
 
+![Live Demo](https://metrics.algorand.ing/public-dashboards/aea0dfee522a471c8ee4f9dbdf690574)
 ![Template Screenshot](images/Template-Screenshot.png)
 
 ## Technical Details
@@ -14,7 +15,7 @@ The dashboard template utilises Prometheus as its data source, the Prometheus se
 - Prometheus server configured to scrape metrics from your Algorand node
 - Algorand node with metrics enabled
 
-## Installation
+## Template Installation
 1. Download or copy the JSON template from this repository
 2. Import the template into your Grafana instance:
    - Navigate to Dashboards -> New -> Import
@@ -23,6 +24,4 @@ The dashboard template utilises Prometheus as its data source, the Prometheus se
    - Save the dashboard
 
 ## Configuration
-The dashboard is designed to work with minimal configuration, but you may need to adjust:
-- Prometheus data source settings
-- Time ranges for historical data display
+The dashboard is designed to work with minimal configuration once the Algorand node and Prometheus server are setup.

@@ -84,8 +84,8 @@
         ]
       },
       "gridPos": {
-        "h": 6,
-        "w": 4,
+        "h": 4,
+        "w": 9,
         "x": 0,
         "y": 0
       },
@@ -140,146 +140,6 @@
         }
       ],
       "title": "",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "fehd4wainhnggb"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 4,
-        "y": 0
-      },
-      "id": 44,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fehd4wainhnggb"
-          },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "rate(algod_network_message_received_total[5m])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "Messages Received",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "fehd4wainhnggb"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 7,
-        "y": 0
-      },
-      "id": 16,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fehd4wainhnggb"
-          },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "rate(algod_network_message_sent_total[5m])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "Messages Sent",
       "transparent": true,
       "type": "stat"
     },
@@ -391,8 +251,8 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 4,
-        "x": 10,
+        "w": 5,
+        "x": 9,
         "y": 0
       },
       "id": 41,
@@ -567,7 +427,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 4,
+        "w": 5,
         "x": 14,
         "y": 0
       },
@@ -714,8 +574,8 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 6,
-        "x": 18,
+        "w": 5,
+        "x": 19,
         "y": 0
       },
       "id": 12,
@@ -826,146 +686,6 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 4,
-        "y": 3
-      },
-      "id": 35,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fehd4wainhnggb"
-          },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "rate(algod_network_p2p_message_received_total[5m])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "P2P Messages Received",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "fehd4wainhnggb"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 7,
-        "y": 3
-      },
-      "id": 36,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fehd4wainhnggb"
-          },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "rate(algod_network_p2p_message_sent_total[5m])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "P2P Messages Sent",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "fehd4wainhnggb"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
             "fixedColor": "#bfbff9",
             "mode": "thresholds"
           },
@@ -984,9 +704,9 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
+        "w": 3,
         "x": 0,
-        "y": 6
+        "y": 4
       },
       "id": 8,
       "options": {
@@ -1055,10 +775,10 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 4,
-        "y": 6
+        "x": 3,
+        "y": 4
       },
-      "id": 20,
+      "id": 44,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1085,7 +805,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_handled[1m])",
+          "expr": "rate(algod_network_message_received_total[5m])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -1095,19 +815,7 @@
           "useBackend": false
         }
       ],
-      "title": "Agreements handled",
-      "transformations": [
-        {
-          "id": "labelsToFields",
-          "options": {
-            "keepLabels": [
-              "commit",
-              "version",
-              "channel"
-            ]
-          }
-        }
-      ],
+      "title": "Messages Received",
       "transparent": true,
       "type": "stat"
     },
@@ -1137,10 +845,10 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 7,
-        "y": 6
+        "x": 6,
+        "y": 4
       },
-      "id": 9,
+      "id": 16,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1167,7 +875,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_dropped[1m])",
+          "expr": "rate(algod_network_message_sent_total[5m])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -1177,7 +885,7 @@
           "useBackend": false
         }
       ],
-      "title": "Agreements dropped",
+      "title": "Messages Sent",
       "transparent": true,
       "type": "stat"
     },
@@ -1326,8 +1034,8 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 4,
-        "x": 10,
+        "w": 5,
+        "x": 9,
         "y": 6
       },
       "id": 45,
@@ -1529,7 +1237,7 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 4,
+        "w": 5,
         "x": 14,
         "y": 6
       },
@@ -1625,8 +1333,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 2,
-        "x": 20,
+        "w": 3,
+        "x": 19,
         "y": 6
       },
       "id": 10,
@@ -1807,9 +1515,9 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
+        "w": 3,
         "x": 0,
-        "y": 9
+        "y": 7
       },
       "id": 6,
       "options": {
@@ -1878,10 +1586,10 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 4,
-        "y": 9
+        "x": 3,
+        "y": 7
       },
-      "id": 30,
+      "id": 35,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1908,7 +1616,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_handled_vote[5m])",
+          "expr": "rate(algod_network_p2p_message_received_total[5m])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -1918,7 +1626,7 @@
           "useBackend": false
         }
       ],
-      "title": "Votes handled",
+      "title": "P2P Messages Received",
       "transparent": true,
       "type": "stat"
     },
@@ -1948,10 +1656,10 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 7,
-        "y": 9
+        "x": 6,
+        "y": 7
       },
-      "id": 19,
+      "id": 36,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1978,7 +1686,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_dropped_vote[5m])",
+          "expr": "rate(algod_network_p2p_message_sent_total[5m])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -1988,7 +1696,7 @@
           "useBackend": false
         }
       ],
-      "title": "Votes dropped",
+      "title": "P2P Messages Sent",
       "transparent": true,
       "type": "stat"
     },
@@ -2025,8 +1733,8 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 4,
-        "x": 20,
+        "w": 5,
+        "x": 19,
         "y": 9
       },
       "id": 1,
@@ -2105,9 +1813,9 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
+        "w": 3,
         "x": 0,
-        "y": 12
+        "y": 10
       },
       "id": 33,
       "options": {
@@ -2176,10 +1884,10 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 4,
-        "y": 12
+        "x": 3,
+        "y": 10
       },
-      "id": 21,
+      "id": 20,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -2206,7 +1914,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_handled_proposal[5m])",
+          "expr": "rate(algod_agreement_handled[1m])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -2216,7 +1924,19 @@
           "useBackend": false
         }
       ],
-      "title": "Proposals handled",
+      "title": "Agreements handled",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "keepLabels": [
+              "commit",
+              "version",
+              "channel"
+            ]
+          }
+        }
+      ],
       "transparent": true,
       "type": "stat"
     },
@@ -2246,10 +1966,10 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 7,
-        "y": 12
+        "x": 6,
+        "y": 10
       },
-      "id": 18,
+      "id": 9,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -2276,7 +1996,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_dropped_proposal[5m])",
+          "expr": "rate(algod_agreement_dropped[1m])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -2286,7 +2006,229 @@
           "useBackend": false
         }
       ],
-      "title": "Proposals dropped",
+      "title": "Agreements dropped",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fehd4wainhnggb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 13
+      },
+      "id": 42,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(node_network_transmit_errs_total[5m]) / rate(node_network_transmit_packets_total[5m]) * 100",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Network Errors",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "keepLabels": [
+              "commit",
+              "version",
+              "channel"
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fehd4wainhnggb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 3,
+        "y": 13
+      },
+      "id": 30,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(algod_agreement_handled_vote[5m])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Votes handled",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fehd4wainhnggb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 6,
+        "y": 13
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(algod_agreement_dropped_vote[5m])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Votes dropped",
       "transparent": true,
       "type": "stat"
     },
@@ -2409,8 +2351,8 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 4,
-        "x": 10,
+        "w": 5,
+        "x": 9,
         "y": 13
       },
       "id": 23,
@@ -2464,14 +2406,187 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fehd4wainhnggb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Ingress"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#01dc94",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 40
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Egress"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#4444ed",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 40
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.transform",
+                "value": "negative-Y"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 14,
+        "y": 13
+      },
+      "id": 48,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate (algod_network_received_bytes_total[1m])",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "editorMode": "code",
+          "expr": "rate (algod_network_sent_bytes_total[1m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Network Transfer",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
       "fieldConfig": {
         "defaults": {},
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
-        "w": 3,
-        "x": 21,
+        "h": 8,
+        "w": 4,
+        "x": 20,
         "y": 14
       },
       "id": 46,
@@ -2514,11 +2629,11 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 0,
-        "y": 15
+        "w": 3,
+        "x": 3,
+        "y": 16
       },
-      "id": 42,
+      "id": 21,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -2533,7 +2648,7 @@
           "values": false
         },
         "showPercentChange": false,
-        "textMode": "value",
+        "textMode": "auto",
         "wideLayout": true
       },
       "pluginVersion": "11.3.0",
@@ -2545,7 +2660,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(node_network_transmit_errs_total[5m]) / rate(node_network_transmit_packets_total[5m]) * 100",
+          "expr": "rate(algod_agreement_handled_proposal[5m])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -2555,19 +2670,7 @@
           "useBackend": false
         }
       ],
-      "title": "Network Errors",
-      "transformations": [
-        {
-          "id": "labelsToFields",
-          "options": {
-            "keepLabels": [
-              "commit",
-              "version",
-              "channel"
-            ]
-          }
-        }
-      ],
+      "title": "Proposals handled",
       "transparent": true,
       "type": "stat"
     },
@@ -2597,8 +2700,78 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 4,
-        "y": 15
+        "x": 6,
+        "y": 16
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fehd4wainhnggb"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(algod_agreement_dropped_proposal[5m])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Proposals dropped",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fehd4wainhnggb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 3,
+        "y": 19
       },
       "id": 28,
       "options": {
@@ -2667,8 +2840,8 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 7,
-        "y": 15
+        "x": 6,
+        "y": 19
       },
       "id": 29,
       "options": {
@@ -2727,6 +2900,6 @@
   "timezone": "browser",
   "title": "Derova - Community Dashboard v2",
   "uid": "aehd7rt8hw1dse",
-  "version": 303,
+  "version": 308,
   "weekStart": ""
 }
