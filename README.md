@@ -5,6 +5,7 @@ This repository contains a Grafana dashboard template designed for graphing Algo
 The dashboard provides real-time metrics and performance data visualisations for node operators.
 
 [Live Demo](https://metrics.algorand.ing/public-dashboards/aea0dfee522a471c8ee4f9dbdf690574)
+
 ![Template Screenshot](images/Template-Screenshot.png)
 
 ## Technical Details
