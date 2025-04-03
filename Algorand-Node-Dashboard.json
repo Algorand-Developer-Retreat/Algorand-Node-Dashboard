@@ -211,6 +211,7 @@
             "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
+            "axisGridShow": false,
             "axisLabel": "",
             "axisPlacement": "auto",
             "axisSoftMin": -1,
@@ -2735,6 +2736,6 @@
   "timezone": "browser",
   "title": "Derova - Community Dashboard v2",
   "uid": "aehd7rt8hw1dse",
-  "version": 313,
+  "version": 314,
   "weekStart": ""
 }
