@@ -1,0 +1,57 @@
+sources:
+  algod:
+    type: file
+    include:
+      - "/var/lib/algorand/node.log" # Path to your Algorand node log file
+  host_metrics:
+    type: host_metrics
+    scrape_interval_secs: 60
+    collectors:
+      - cpu
+      - memory
+      - disk
+      - network
+
+transforms:
+  transform_item:
+    type: remap
+    inputs:
+      - algod
+    source: |
+      . = parse_json!(string!(.message))
+      .details = encode_json(.details)
+      ._time = .time
+      del(.time)
+      del(.function)
+      del(.instanceName)
+      del(.line)
+
+  algod_telemetry:
+    type: filter
+    inputs:
+      - transform_item
+    condition:
+      type: vrl
+      source: '.file == "telemetry.go"'
+
+  telemetry_to_metrics:
+    type: log_to_metric
+    inputs:
+      - algod_telemetry
+    metrics:
+      - type: counter
+        name: "algorand_telemetry_events_total"
+        namespace: "algorand"
+        field: "msg"
+        tags:
+          context: "{{ Context }}"
+          level: "{{ level }}"
+          msg_type: "{{ msg }}"
+
+sinks:
+  prometheus:
+    type: prometheus_exporter
+    inputs:
+      - telemetry_to_metrics
+      - host_metrics
+    address: "0.0.0.0:9598"

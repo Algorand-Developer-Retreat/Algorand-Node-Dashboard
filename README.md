@@ -26,3 +26,6 @@ The dashboard template utilises Prometheus as its data source, the Prometheus se
 
 ## Configuration
 The dashboard is designed to work with minimal configuration once the Algorand node and Prometheus server are setup.
+
+## Special Thanks
+Special thanks to [Neil Campbell](https://github.com/neilcampbell) for the [Vector Configuration](https://github.com/Algorand-Developer-Retreat/node-monitoring) that was used to graph the telemetry data such as Blocks, Votes, Heartbeats, etc
