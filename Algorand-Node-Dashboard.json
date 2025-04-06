@@ -741,13 +741,13 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
-      "description": "Algod ledger transactions (Total)",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "#bfbff9",
             "mode": "thresholds"
           },
+          "decimals": 0,
+          "fieldMinMax": false,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -757,22 +757,72 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "short"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Blocks Accepted"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Blocks Proposed"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Votes Sent"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "D"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Heartbeats"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
-        "h": 3,
-        "w": 3,
+        "h": 4,
+        "w": 9,
         "x": 0,
         "y": 4
       },
-      "id": 8,
+      "id": 48,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
-        "orientation": "auto",
+        "orientation": "vertical",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
@@ -782,7 +832,7 @@
           "values": false
         },
         "showPercentChange": false,
-        "textMode": "auto",
+        "textMode": "value_and_name",
         "wideLayout": true
       },
       "pluginVersion": "11.3.0",
@@ -792,159 +842,53 @@
             "type": "prometheus",
             "uid": "${DS_ALGORAND_NODE}"
           },
-          "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_ledger_transactions_total[1m])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
+          "expr": "increase(algorand_algorand_telemetry_events_total{msg_type=\"/Agreement/BlockAccepted\"}[$__range])",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "Ledger TPS",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_ALGORAND_NODE}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
+          "refId": "A"
         },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 3,
-        "y": 4
-      },
-      "id": 44,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_ALGORAND_NODE}"
           },
-          "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_network_message_received_total[1m])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
+          "expr": "increase(algorand_algorand_telemetry_events_total{msg_type=\"/Agreement/BlockProposed\"}[$__range])",
+          "hide": false,
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "Messages Received",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_ALGORAND_NODE}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
+          "refId": "B"
         },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 6,
-        "y": 4
-      },
-      "id": 16,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_ALGORAND_NODE}"
           },
-          "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_network_message_sent_total[1m])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
+          "expr": "increase(algorand_algorand_telemetry_events_total{msg_type=\"/Agreement/VoteSent\"}[$__range])",
+          "hide": false,
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
-          "refId": "A",
-          "useBackend": false
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALGORAND_NODE}"
+          },
+          "editorMode": "code",
+          "expr": "increase(algorand_algorand_telemetry_events_total{msg_type=\"/ApplicationState/Heartbeat\"}[$__range])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "D"
         }
       ],
-      "title": "Messages Sent",
       "transparent": true,
       "type": "stat"
     },
@@ -1516,7 +1460,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
-      "description": "Number of messages in the pool",
+      "description": "Algod ledger transactions (Total)",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1540,7 +1484,79 @@
         "h": 3,
         "w": 3,
         "x": 0,
-        "y": 7
+        "y": 8
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALGORAND_NODE}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(algod_ledger_transactions_total[$__range])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Ledger TPS",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_ALGORAND_NODE}"
+      },
+      "description": "Number of messages in the pool",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#bfbff9",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 3,
+        "y": 8
       },
       "id": 6,
       "options": {
@@ -1588,76 +1604,7 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 3,
-        "y": 7
-      },
-      "id": 35,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_ALGORAND_NODE}"
-          },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "rate(algod_network_p2p_message_received_total[1m])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "P2P Messages Received",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_ALGORAND_NODE}"
-      },
+      "description": "1 minute average of the node load",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1680,9 +1627,9 @@
         "h": 3,
         "w": 3,
         "x": 6,
-        "y": 7
+        "y": 8
       },
-      "id": 36,
+      "id": 33,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1709,7 +1656,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_network_p2p_message_sent_total[1m])",
+          "expr": "node_load1",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -1719,7 +1666,7 @@
           "useBackend": false
         }
       ],
-      "title": "P2P Messages Sent",
+      "title": "Node Load (1m avg)",
       "transparent": true,
       "type": "stat"
     },
@@ -1817,7 +1764,6 @@
         "type": "prometheus",
         "uid": "${DS_ALGORAND_NODE}"
       },
-      "description": "1 minute average of the node load",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1840,9 +1786,9 @@
         "h": 3,
         "w": 3,
         "x": 0,
-        "y": 10
+        "y": 11
       },
-      "id": 33,
+      "id": 44,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1869,7 +1815,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "node_load1",
+          "expr": "rate(algod_network_message_received_total[$__range])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -1879,7 +1825,7 @@
           "useBackend": false
         }
       ],
-      "title": "Node Load (1m avg)",
+      "title": "Messages Received",
       "transparent": true,
       "type": "stat"
     },
@@ -1910,7 +1856,7 @@
         "h": 3,
         "w": 3,
         "x": 3,
-        "y": 10
+        "y": 11
       },
       "id": 20,
       "options": {
@@ -1939,7 +1885,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_handled[1m])",
+          "expr": "rate(algod_agreement_handled[$__range])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -1992,160 +1938,7 @@
         "h": 3,
         "w": 3,
         "x": 6,
-        "y": 10
-      },
-      "id": 9,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_ALGORAND_NODE}"
-          },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "rate(algod_agreement_dropped[1m])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "Agreements dropped",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_ALGORAND_NODE}"
-      },
-      "description": "Number of network transmit errors as a ratio based on the number of total transmit packets",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 0,
-        "y": 13
-      },
-      "id": 42,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "value",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_ALGORAND_NODE}"
-          },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "rate(node_network_transmit_errs_total[1m]) / rate(node_network_transmit_packets_total[1m]) * 100",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "Network Errors",
-      "transformations": [
-        {
-          "id": "labelsToFields",
-          "options": {
-            "keepLabels": [
-              "commit",
-              "version",
-              "channel"
-            ]
-          }
-        }
-      ],
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_ALGORAND_NODE}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 3,
-        "y": 13
+        "y": 11
       },
       "id": 30,
       "options": {
@@ -2174,7 +1967,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_handled_vote[1m])",
+          "expr": "rate(algod_agreement_handled_vote[$__range])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -2185,76 +1978,6 @@
         }
       ],
       "title": "Votes handled",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_ALGORAND_NODE}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#01dc94",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 6,
-        "y": 13
-      },
-      "id": 19,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_ALGORAND_NODE}"
-          },
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "rate(algod_agreement_dropped_vote[1m])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        }
-      ],
-      "title": "Votes dropped",
       "transparent": true,
       "type": "stat"
     },
@@ -2433,6 +2156,299 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_ALGORAND_NODE}"
+      },
+      "description": "Number of network transmit errors as a ratio based on the number of total transmit packets",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 14,
+        "y": 13
+      },
+      "id": 42,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALGORAND_NODE}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(node_network_transmit_errs_total[1m]) / rate(node_network_transmit_packets_total[1m]) * 100",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Network Errors",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "keepLabels": [
+              "commit",
+              "version",
+              "channel"
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_ALGORAND_NODE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 14
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALGORAND_NODE}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(algod_network_message_sent_total[$__range])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Messages Sent",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_ALGORAND_NODE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 3,
+        "y": 14
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALGORAND_NODE}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(algod_agreement_dropped[$__range])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Agreements dropped",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_ALGORAND_NODE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 6,
+        "y": 14
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALGORAND_NODE}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(algod_agreement_dropped_vote[$__range])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Votes dropped",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
       "gridPos": {
         "h": 8,
         "w": 4,
@@ -2479,8 +2495,8 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 3,
-        "y": 16
+        "x": 0,
+        "y": 17
       },
       "id": 21,
       "options": {
@@ -2509,7 +2525,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_handled_proposal[1m])",
+          "expr": "rate(algod_agreement_handled_proposal[$__range])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -2549,8 +2565,148 @@
       "gridPos": {
         "h": 3,
         "w": 3,
+        "x": 3,
+        "y": 17
+      },
+      "id": 35,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALGORAND_NODE}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(algod_network_p2p_message_received_total[$__range])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "P2P Messages Received",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_ALGORAND_NODE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
         "x": 6,
-        "y": 16
+        "y": 17
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALGORAND_NODE}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "rate(algod_agreement_handled_bundle[$__range])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Bundles handled",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_ALGORAND_NODE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#01dc94",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 20
       },
       "id": 18,
       "options": {
@@ -2579,7 +2735,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_dropped_proposal[1m])",
+          "expr": "rate(algod_agreement_dropped_proposal[$__range])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -2620,9 +2776,9 @@
         "h": 3,
         "w": 3,
         "x": 3,
-        "y": 19
+        "y": 20
       },
-      "id": 28,
+      "id": 36,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -2649,7 +2805,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_handled_bundle[1m])",
+          "expr": "rate(algod_network_p2p_message_sent_total[$__range])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -2659,7 +2815,7 @@
           "useBackend": false
         }
       ],
-      "title": "Bundles handled",
+      "title": "P2P Messages Sent",
       "transparent": true,
       "type": "stat"
     },
@@ -2690,7 +2846,7 @@
         "h": 3,
         "w": 3,
         "x": 6,
-        "y": 19
+        "y": 20
       },
       "id": 29,
       "options": {
@@ -2719,7 +2875,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(algod_agreement_dropped_bundle[1m])",
+          "expr": "rate(algod_agreement_dropped_bundle[$__range])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -2748,6 +2904,6 @@
   "timezone": "browser",
   "title": "Derova - Community Dashboard v2",
   "uid": "aehd7rt8hw1dse",
-  "version": 330,
+  "version": 355,
   "weekStart": ""
 }
